@@ -1,0 +1,16 @@
+a = float(input("masukan bilangan a: ))
+b = float(input("masukan bilangan b: ))
+c = float(input("masukan bilangan c: ))
+
+if (a+b>c)and(b+c>a)and(c+a>b)
+
+   if a == b == c :
+      hasil = "Segitiga sama sisi"
+   elif a == b or b == c or a == c
+      hasil = "Segitiga sama kaki"
+   else :
+      hasil = "Segitiga sembarang"
+else :
+    hasil : "Tidak memenuhi syarat"
+
+print(hasil)
