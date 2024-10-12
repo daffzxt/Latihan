@@ -1,0 +1,37 @@
+--PERSAMAAN KUADRAT--
+import cmath  # Untuk menangani akar kompleks
+
+def akar_persamaan_kuadrat(a, b, c):
+    # Menghitung diskriminan
+    D = b**2 - 4*a*c
+    
+    # Menghitung dua akar (menggunakan cmath agar bisa menangani bilangan kompleks)
+    akar1 = (-b + cmath.sqrt(D)) / (2*a)
+    akar2 = (-b - cmath.sqrt(D)) / (2*a)
+    
+    return akar1, akar2
+
+# Input dari pengguna
+a = float(input("Masukkan nilai a: "))
+b = float(input("Masukkan nilai b: "))
+c = float(input("Masukkan nilai c: "))
+
+# Menampilkan hasil
+akar1, akar2 = akar_persamaan_kuadrat(a, b, c)
+print(f"Akar pertama: {akar1}")
+print(f"Akar kedua: {akar2}")
+
+
+--DETERMINAN--
+def hitung_determinan(a, b, c, d):
+    return (a * d) - (b * c)
+
+# Input dari pengguna
+a = float(input("Masukkan elemen a (baris 1, kolom 1): "))
+b = float(input("Masukkan elemen b (baris 1, kolom 2): "))
+c = float(input("Masukkan elemen c (baris 2, kolom 1): "))
+d = float(input("Masukkan elemen d (baris 2, kolom 2): "))
+
+# Menghitung dan menampilkan determinan
+determinan = hitung_determinan(a, b, c, d)
+print(f"Determinan dari matriks adalah: {determinan}")
