@@ -1,0 +1,56 @@
+FUNCTION hitung_tiket_kebun_binatang
+    SET total_harga TO 0
+
+    WHILE True DO
+        PRINT "Masukkan umur pengunjung (atau ketik 'exit' untuk keluar):"
+        READ umur
+        
+        IF umur = "exit" THEN
+            BREAK
+        ENDIF
+        
+        TRY
+            CONVERT umur TO integer
+        EXCEPTION
+            PRINT "Input tidak valid. Mohon masukkan angka yang benar untuk umur."
+            CONTINUE
+        ENDTRY
+        
+        IF umur <= 2 THEN
+            SET harga_tiket TO 0
+        ELSE IF umur >= 3 AND umur <= 12 THEN
+            SET harga_tiket TO 14
+        ELSE IF umur >= 65 THEN
+            SET harga_tiket TO 18
+        ELSE
+            SET harga_tiket TO 23
+        ENDIF
+        
+        PRINT "Harga tiket untuk umur", umur, "tahun adalah $", harga_tiket
+        
+        INCREMENT total_harga BY harga_tiket
+    ENDWHILE
+
+    PRINT "Total harga tiket yang harus dibayar: $", total_harga
+
+    WHILE True DO
+        PRINT "Masukkan jumlah uang yang dibayarkan: $"
+        READ pembayaran
+        
+        TRY
+            CONVERT pembayaran TO float
+            BREAK
+        EXCEPTION
+            PRINT "Input tidak valid. Mohon masukkan angka yang benar untuk jumlah uang."
+        ENDTRY
+    ENDWHILE
+
+    IF pembayaran >= total_harga THEN
+        SET kembalian TO pembayaran - total_harga
+        PRINT "Kembalian yang harus diberikan: $", kembalian
+    ELSE
+        PRINT "Uang yang dibayarkan tidak cukup untuk membayar total tiket."
+    ENDIF
+END FUNCTION
+
+CALL hitung_tiket_kebun_binatang
