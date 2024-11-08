@@ -1,0 +1,30 @@
+def is_leap_year(year):
+    """Fungsi untuk memeriksa apakah tahun adalah tahun kabisat."""
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return True
+    return False
+
+def days_in_month(month, year):
+    """Fungsi untuk menentukan jumlah hari dalam bulan tertentu."""
+    # Daftar jumlah hari dalam setiap bulan
+    days_in_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    
+    # Memeriksa tahun kabisat untuk bulan Februari
+    if month == 2 and is_leap_year(year):
+        return 29
+    
+    # Mengembalikan jumlah hari untuk bulan yang diberikan
+    return days_in_months[month - 1]
+
+# Input dari pengguna
+try:
+    month = int(input("Masukkan bulan (1-12): "))
+    year = int(input("Masukkan tahun: "))
+
+    if 1 <= month <= 12:
+        days = days_in_month(month, year)
+        print(f"Jumlah hari dalam bulan {month} tahun {year} adalah {days} hari.")
+    else:
+        print("Bulan harus antara 1 dan 12.")
+except ValueError:
+    print("Input tidak valid. Harap masukkan angka untuk bulan dan tahun.")
