@@ -1,0 +1,29 @@
+def get_ordinal_suffix(n):
+    """Mengembalikan akhiran ordinal yang sesuai untuk angka n."""
+    if 10 <= n % 100 <= 20:  # Untuk angka 11, 12, 13
+        return 'th'
+    else:
+        if n % 10 == 1:
+            return 'st'
+        elif n % 10 == 2:
+            return 'nd'
+        elif n % 10 == 3:
+            return 'rd'
+        else:
+            return 'th'
+
+def display_ordinal(n):
+    """Menampilkan angka dengan akhiran ordinal."""
+    suffix = get_ordinal_suffix(n)
+    print(f"{n}{suffix}")
+
+# Contoh penggunaan
+while True:
+    try:
+        user_input = input(">> ")  # Mengambil input dari pengguna
+        if user_input.lower() == 'exit':  # Menyediakan cara untuk keluar
+            break
+        number = int(user_input)  # Mengonversi input menjadi integer
+        display_ordinal(number)  # Menampilkan angka dengan akhiran ordinal
+    except ValueError:
+        print("Silakan masukkan angka yang valid.")
