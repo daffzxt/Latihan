@@ -1,0 +1,27 @@
+#Tugas 1
+def main():
+    jumlah = int(input("Masukkan Jumlah: "))
+    total = 0
+    count = 0
+
+    while count < jumlah:
+        total += float(input(f"Masukkan angka ke-{count + 1}: "))
+        count += 1
+
+    print("Total penjumlahan adalah:", total)
+
+if __name__ == "__main__":
+    main()
+
+#Tugas 2
+def perpangkatan(base, power):
+    if power == 0:
+        return 1
+    else:
+        return base * perpangkatan(base, power - 1)
+
+base_number = float(input("Masukkan angka awal (base): "))
+power_number = int(input("Masukkan pangkat (power): "))
+
+hasil = perpangkatan(base_number, power_number)
+print(f"{base_number} pangkat {power_number} adalah {hasil}")
