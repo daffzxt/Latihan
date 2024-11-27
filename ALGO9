@@ -1,0 +1,84 @@
+#Tugas 1
+def tulis_biodata():
+   nama = input("Nama: ") 
+   umur = input("Umur: ") 
+   alamat = input("Alamat: ") 
+   email = input("Email: ")
+   dosen_wali = input("Dosen Wali: ")
+
+
+   with open('Biodata.txt', 'w') as file: 
+     file.write(f"Nama: {nama}\n") 
+     file.write(f"Umur: {umur}\n") 
+     file.write(f"Alamat: {alamat}\n") 
+     file.write(f"Email: {email}\n") 
+     file.write(f"Dosen Wali: {dosen_wali}\n")
+   print("\nBiodata telah disimpan di file 'Biodata.txt'.")
+
+def baca_biodata(): 
+try:
+with open('Biodata.txt', 'r') as file: 
+    print("\nIsi Biodata:") 
+    print(file.read())
+except FileNotFoundError:
+print("\nFile 'Biodata.txt' tidak ditemukan. Pastikan file sudah dibuat terlebih dahulu.")
+
+if  name	== ' main ': 
+tulis_biodata() 
+baca_biodata()
+
+#Tugas2
+def buat_file(nama_file):
+    """Membuat file baru."""
+    with open(nama_file, 'w') as file:
+        file.write("")  # Membuat file kosong
+
+def baca_file(nama_file):
+    """Membaca isi file dan menampilkannya."""
+    try:
+        with open(nama_file, 'r') as file:
+            isi = file.read()
+            print("Isi file:")
+            print(isi if isi else "File kosong.")
+    except FileNotFoundError:
+        print("File tidak ditemukan.")
+
+def tambah_ke_file(nama_file, data):
+    """Menambahkan data ke dalam file."""
+    with open(nama_file, 'a') as file:
+        file.write(data + "\n")
+
+def main():
+    while True:
+        print("\nMenu:")
+        print("1. Buat File")
+        print("2. Baca File")
+        print("3. Tambah Data ke File")
+        print("4. Tutup Program")
+        
+        pilihan = input("Pilih menu (1/2/3/4): ")
+
+        if pilihan == '1':
+            nama_file = input("Masukkan nama file: ")
+            buat_file(nama_file)
+            print(f"File '{nama_file}' telah dibuat.")
+        
+        elif pilihan == '2':
+            nama_file = input("Masukkan nama file untuk dibaca: ")
+            baca_file(nama_file)
+        
+        elif pilihan == '3':
+            nama_file = input("Masukkan nama file untuk ditambahkan data: ")
+            data = input("Masukkan data yang ingin ditambahkan: ")
+            tambah_ke_file(nama_file, data)
+            print(f"Data telah ditambahkan ke file '{nama_file}'.")
+        
+        elif pilihan == '4':
+            print("Program ditutup.")
+            break
+        
+        else:
+            print("Pilihan tidak valid. Silakan pilih lagi.")
+
+if __name__ == "__main__":
+    main()
