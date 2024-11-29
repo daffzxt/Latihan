@@ -1,0 +1,22 @@
+#Tugas 1
+def bubble_sort(arr):
+    for i in range(len(arr)):
+        for j in range(0, len(arr)-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+
+def main():
+    arr = list(map(int, input("Masukkan elemen yang ingin diurutkan (pisahkan dengan spasi): ").split()))
+    target = int(input("Masukkan elemen yang ingin dicari: "))
+    
+    bubble_sort(arr)
+    print("List setelah diurutkan:", arr)
+
+    for i, index in enumerate(arr):
+        if index == target:
+            print(f"Elemen {target} ditemukan pada indeks {i}")
+            break
+   
+
+if __name__ == "__main__":
+    main()
