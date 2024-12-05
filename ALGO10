@@ -36,6 +36,13 @@ def bubble_sort_recursive(arr, n=None):
 
     return bubble_sort_recursive(arr, n - 1)
 
-arr = [64, 34, 25, 12, 22, 11, 90]
-sorted_arr = bubble_sort_recursive(arr)
-print("Sorted array:", sorted_arr)
+def get_input():
+    data = input("Masukkan elemen array yang dipisahkan dengan spasi: ")
+    arr = list(map(int, data.split()))
+    return arr
+
+if __name__ == "__main__":
+    data = get_input()
+    sorted_data = bubble_sort_recursive(data)
+    print("Array yang sudah di-sort:", sorted_data)
+
