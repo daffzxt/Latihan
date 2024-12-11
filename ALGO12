@@ -1,0 +1,39 @@
+#Tugas 1
+import pandas as pd
+
+namaFile = pd.read_csv('/content/Negara.csv')
+print(namaFile)
+df = pd.read_csv('/content/Negara.csv')
+
+mean = df.groupby(['Negara'])['Populasi'].mean()
+
+print(mean)
+
+#Tugas 2
+import pandas as pd
+
+data = {
+    'Negara': ['Indonesia', 'Malaysia', 'Thailand', 'Filipina', 'Vietnam'],
+    'Luas Area (km²)': [1904569, 330803, 513120, 300000, 331212],
+    'Total Populasi': [270000000, 32000000, 69000000, 110000000, 97000000]
+}
+
+df = pd.DataFrame(data)
+
+mean_df = df[['Luas Area (km²)', 'Total Populasi']].mean().reset_index()
+mean_df.columns = ['Keterangan', 'Mean']
+std_dev_df = df[['Luas Area (km²)', 'Total Populasi']].std().reset_index()
+std_dev_df.columns = ['Keterangan', 'Standar Deviasi']
+
+mean_df.to_csv('NegaraMean.csv', index=False)
+std_dev_df.to_csv('NegaraStandarDeviasi.csv', index=False)
+
+print("File CSV telah berhasil dibuat: NegaraMean.csv dan NegaraStandarDeviasi.csv")
+
+print("\nIsi dari NegaraMean.csv:")
+mean_data = pd.read_csv('NegaraMean.csv')
+print(mean_data)
+
+print("\nIsi dari NegaraStandarDeviasi.csv:")
+std_dev_data = pd.read_csv('NegaraStandarDeviasi.csv')
+print(std_dev_data)
