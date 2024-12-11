@@ -1,0 +1,76 @@
+#Tugas 1 
+class Mahasiswa:
+  def  init (self, nama, npm, jurusan, usia): 
+     self.nama = nama
+     self.nim = nim  
+     self.jurusan = jurusan  
+     self.usia = usia
+
+  def tampilkan_biodata(self): 
+     print("Biodata Mahasiswa:") 
+     print(f"Nama	: {self.nama}")
+     print(f"NIM		: {self.nim}")  
+     print(f"Jurusan : {self.jurusan}") 
+     print(f"Usia	: {self.usia} tahun")
+
+nama = input("Masukkan Nama Mahasiswa: ") 
+nim = input("Masukkan NIM Mahasiswa: ") 
+jurusan = input("Masukkan Jurusan Mahasiswa: ") 
+usia = int(input("Masukkan Usia Mahasiswa: "))
+
+mahasiswa1 = Mahasiswa(nama, nim, jurusan, usia) 
+mahasiswa1.tampilkan_biodata()
+
+
+
+
+
+
+
+
+
+#Tugas 2
+class DataNilai:
+    def __init__(self):
+        self._nilai = 0  
+
+    def get_nilai(self):
+        return self._nilai
+
+    def set_nilai(self, nilai):
+        if 0 <= nilai <= 100: 
+            self._nilai = nilai
+            print(f"Nilai berhasil diubah menjadi: {self._nilai}")
+        else:
+            print("Nilai harus antara 0 dan 100.")
+
+def main():
+    data_nilai = DataNilai()  
+
+    while True:
+        print("\nMenu:")
+        print("1. Tampilkan Nilai")
+        print("2. Ubah Nilai")
+        print("3. Keluar")
+        
+        pilihan = input("Pilih menu (1/2/3): ")
+
+        if pilihan == '1':           
+            print(f"Nilai saat ini: {data_nilai.get_nilai()}")
+        
+        elif pilihan == '2':
+            try:
+                nilai_baru = int(input("Masukkan nilai baru (0-100): "))
+                data_nilai.set_nilai(nilai_baru)
+            except ValueError:
+                print("Input tidak valid. Harap masukkan angka.")
+        
+        elif pilihan == '3':
+            print("Keluar dari program.")
+            break
+        
+        else:
+            print("Pilihan tidak valid. Silakan coba lagi.")
+
+if __name__ == "__main__":
+    main()
